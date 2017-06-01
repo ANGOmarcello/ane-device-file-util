@@ -87,8 +87,11 @@ DEFINE_ANE_FUNCTION(openWith)
     [docController retain];
     [url release];
     
+    CGRect superviewBounds = mainController.view.bounds;
+    CGRect position = CGRectMake(CGRectGetMidX(superviewBounds), CGRectGetMidY(superviewBounds), 0, 0);
+    
     // Show me the view
-    [docController presentOptionsMenuFromRect:CGRectZero inView:mainController.view animated:YES];
+    [docController presentOptionsMenuFromRect:position inView:mainController.view animated:YES];
     
     return NULL;
 }
